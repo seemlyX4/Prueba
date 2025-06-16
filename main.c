@@ -2,13 +2,14 @@
 #include <stdio.h>
 
 void Menu() {
-	printf("\nMenu de acciones dentro del Stack:\n")'
+	printf("\nMenu de acciones dentro del Stack:\n");
 	printf("1.Push (agregar elemento)\n");
 	printf("2.Pop (sacar elemento)\n");
 	printf("3.Peek (ver elemento superior)\n");
 	printf("4.Verificar si el stack esta vacio o no\n");
 	printf("5.Mostrar stack\n");
 	printf("6.Salir\n");
+}
 
 int main () {
 	Stack* stack = createStack();
@@ -20,7 +21,7 @@ int main () {
 
 		switch(opcion) {
 			case 1:
-				printf("Ingrese valor que desea agregar: ")
+				printf("Ingrese valor que desea agregar: ");
 				scanf("%d", &valor);
 				push(stack, valor);
 				break;
