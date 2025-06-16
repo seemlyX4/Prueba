@@ -59,7 +59,7 @@ int peek(Stack* stack) {
 
 int isEmpty(Stack* stack) {
 	if(stack == NULL) {
-		return 1
+		return 1;
 	}
 	return stack->top == NULL;
 }
@@ -67,12 +67,12 @@ int isEmpty(Stack* stack) {
 void printStack(Stack* stack) {
 	if(isEmpty(stack)) {
 		printf("El stack no contiene nada\n");
-		return'
+		return;
 	}
 	print ("Stack de arriba para abajo\n");
 	StackNode* actual = stack->top;
 	while (actual != NULL) {
-		printf("%d", actual->valor);
+		printf("%d ", actual->valor);
 		actual = actual->next;
 	}
 	printf("\n");
