@@ -11,8 +11,9 @@ Stack* createStack() {
 	nuevo_stack->top = NULL;
 	nuevo_stack->size = 0;
 	return nuevo_stack;
+}
 
-void destroyStack(Stack* stack)
+void destroyStack(Stack* stack) {
 	if (stack == NULL) {
 		printf("El stack no existe\n");   //en caso de que no ha nada que borrar	
 		return;
@@ -23,14 +24,14 @@ void destroyStack(Stack* stack)
 	free(stack);
 }
 
-void push(Stack* stack, int data) {
+void push(Stack* stack, int valor) {
 	StackNode* nuevo_nodo = (StackNode*)malloc(sizeof(StackNode));
 	if (nuevo_nodo == NULL) {
 		printf("Imposible crear el nodo\n");
 		return;
 	}
 
-	nuevo_nodo->data = data;
+	nuevo_nodo->valor = valor;
 	nuevo_nodo->next = stack->top;
 	stack->top = nuevo_nodo;
 	stack->size++;
@@ -41,11 +42,11 @@ int pop(Stack* stack) {
 		return -1;
 	}
 	StackNode* nodo_eliminado = stack->top;
-	int data = nodo_eliminado->data;
+	int valor = nodo_eliminado->valor;
 	stack->top = nodo_eliminado->next;
 	free(nodo_eliminado);                     //liberamos memoria
 	stack->size--;
-	return data;
+	return valor;
 }
 
 int peek(Stack* stack) {
@@ -53,7 +54,7 @@ int peek(Stack* stack) {
 		printf("El stack no contiene nada\n");
 		return -1;
 	}
-	return stack->top->data;
+	return stack->top->valor;
 }
 
 int isEmpty(Stack* stack) {
@@ -65,13 +66,13 @@ int isEmpty(Stack* stack) {
 
 void printStack(Stack* stack) {
 	if(isEmpty(stack)) {
-		print("El stack no contiene nada\n");
+		printf("El stack no contiene nada\n");
 		return'
 	}
 	print ("Stack de arriba para abajo\n");
 	StackNode* actual = stack->top;
-	while (current != NULL) {
-		printf("%d", actual->data);
+	while (actual != NULL) {
+		printf("%d", actual->valor);
 		actual = actual->next;
 	}
 	printf("\n");
